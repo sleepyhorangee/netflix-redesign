@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { modalState, movieState } from '../atoms/modalAtom.'
-import ReactPlayer from 'react-player/lazy'
+// import ReactPlayer from 'react-player/lazy'
 import { FaPlay } from 'react-icons/fa'
 import {
   CheckIcon,
@@ -24,6 +24,10 @@ import {
 import { db } from '../firebase'
 import useAuth from '../hooks/useAuth'
 import toast, { Toaster } from 'react-hot-toast'
+import {default as _ReactPlayer} from 'react-player';
+import {ReactPlayerProps} from "react-player/types/lib";
+
+const ReactPlayer = _ReactPlayer as unknown as React.FC<ReactPlayerProps>;
 
 function Modal() {
   const [movie, setMovie] = useRecoilState(movieState)
